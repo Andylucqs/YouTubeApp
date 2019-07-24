@@ -26,8 +26,23 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         collectionView.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
         
+        collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        
+        setupMenuBar()
     }
+    
+    let menuBar: MenuBar = {
+        let mb = MenuBar()
+        return mb
+    }()
 
+    private func setupMenuBar() {
+        view.addSubview(menuBar)
+        view.addConstraintWithFormat(format: "H:|[v0]|", view: menuBar)
+        view.addConstraintWithFormat(format: "V:|[v0(50)]", view: menuBar)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
