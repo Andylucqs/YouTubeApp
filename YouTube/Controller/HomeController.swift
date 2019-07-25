@@ -10,30 +10,78 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
 
-    var videos: [Video] = {
+//    var videos: [Video] = {
+//
+//        var mythBustersChannel = Channel()
+//        mythBustersChannel.name = "Myth Busters"
+//        mythBustersChannel.profileImageName = "muthBustersLogo"
+//
+//        var nearEnoughtVideo = Video()
+//        nearEnoughtVideo.title = "VSause: The law of near enought"
+//        nearEnoughtVideo.thumbnailImageName = "near_enought"
+//        nearEnoughtVideo.channel = mythBustersChannel
+//        nearEnoughtVideo.numberOfVievs = 234234565
+//
+//
+//        var runEarthVideo = Video()
+//        runEarthVideo.title = "VSause: Как движется земля"
+//        runEarthVideo.thumbnailImageName = "run_earth"
+//        runEarthVideo.channel = mythBustersChannel
+//        runEarthVideo.numberOfVievs = 2342334996
+//
+//        return [nearEnoughtVideo, runEarthVideo]
+//    }()
+    
+    var videos: [Video]?
+    
+    func fetchVideos() {
+        let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
+        URLSession.shared.dataTask(with: url!) { (data, responce, error) in
+            
+            
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            do {
+               let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                
+                self.videos = [Video]()
+                
+                for dictionary in json as! [[String: AnyObject]] {
+                    
+                    let video = Video()
+                    video.title = dictionary["title"] as? String
+                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+                    
+                    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
+                    
+                    let channel = Channel()
+                    channel.name = channelDictionary["name"] as? String
+                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
+                    
+                    video.channel = channel
+                    
+                    self.videos?.append(video)
+                }
+                
+                self.collectionView.reloadData()
+                
+            } catch let jsonError{
+                print(jsonError)
+            }
+            
         
-        var mythBustersChannel = Channel()
-        mythBustersChannel.name = "Myth Busters"
-        mythBustersChannel.profileImageName = "muthBustersLogo"
+            
+        }.resume()
         
-        var nearEnoughtVideo = Video()
-        nearEnoughtVideo.title = "VSause: The law of near enought"
-        nearEnoughtVideo.thumbnailImageName = "near_enought"
-        nearEnoughtVideo.channel = mythBustersChannel
-        nearEnoughtVideo.numberOfVievs = 234234565
-        
-        
-        var runEarthVideo = Video()
-        runEarthVideo.title = "VSause: Как движется земля"
-        runEarthVideo.thumbnailImageName = "run_earth"
-        runEarthVideo.channel = mythBustersChannel
-        runEarthVideo.numberOfVievs = 2342334996
-        
-        return [nearEnoughtVideo, runEarthVideo]
-    }()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchVideos()
 
         navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
@@ -86,13 +134,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        return videos?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! VideoCell
         
-        cell.video = videos[indexPath.item]
+        cell.video = videos?[indexPath.item]
         
         return cell
     }
