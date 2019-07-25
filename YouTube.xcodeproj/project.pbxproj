@@ -17,6 +17,7 @@
 		5F25BF3422E867DD007E38AA /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3322E867DD007E38AA /* VideoCell.swift */; };
 		5F25BF3722E86CAF007E38AA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3622E86CAF007E38AA /* MenuBar.swift */; };
 		5F25BF3A22E8B99C007E38AA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3922E8B99C007E38AA /* Model.swift */; };
+		5F25BF3C22E9A5CD007E38AA /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5F25BF3322E867DD007E38AA /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		5F25BF3622E86CAF007E38AA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		5F25BF3922E8B99C007E38AA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				5F25BF3322E867DD007E38AA /* VideoCell.swift */,
 				5F25BF3622E86CAF007E38AA /* MenuBar.swift */,
+				5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F25BF3A22E8B99C007E38AA /* Model.swift in Sources */,
+				5F25BF3C22E9A5CD007E38AA /* CustomImageView.swift in Sources */,
 				5F25BF3422E867DD007E38AA /* VideoCell.swift in Sources */,
 				5F25BF2322E76871007E38AA /* YouTube.xcdatamodeld in Sources */,
 				5F25BF3722E86CAF007E38AA /* MenuBar.swift in Sources */,
