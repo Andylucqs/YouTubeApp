@@ -31,7 +31,6 @@ class SettingCell: BaseCell {
         }
     }
     
-    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Setting"

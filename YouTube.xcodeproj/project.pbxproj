@@ -36,7 +36,7 @@
 		5F25BF3622E86CAF007E38AA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		5F25BF3922E8B99C007E38AA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
-		5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsLauncher.swift; path = ../Controller/SettingsLauncher.swift; sourceTree = "<group>"; };
+		5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		5F25BF3F22E9F694007E38AA /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				5F25BF1C22E76871007E38AA /* HomeController.swift */,
+				5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -107,7 +108,6 @@
 				5F25BF3622E86CAF007E38AA /* MenuBar.swift */,
 				5F25BF3F22E9F694007E38AA /* SettingCell.swift */,
 				5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */,
-				5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

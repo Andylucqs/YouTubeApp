@@ -40,7 +40,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             
             
             if error != nil {
-                print(error)
+                print(error ?? "")
                 return
             }
             
@@ -116,9 +116,23 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
-    let settingsLauncher = SettingLauncher()
+    lazy var settingsLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
+    
     @objc func handleMore() {
         settingsLauncher.showSettings()
+    }
+    
+    func showControllerForSetting(setting: Setting) {
+        let dummySerringViewController = UIViewController()
+        dummySerringViewController.view.backgroundColor = .white
+        dummySerringViewController.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.pushViewController(dummySerringViewController, animated: true)
     }
     
     @objc func handSearch() {
