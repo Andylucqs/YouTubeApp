@@ -110,18 +110,19 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handSearch))
         
         let moreImage = UIImage(named: "nav_more_icon")?.withRenderingMode(.alwaysOriginal)
-        let moreButton = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handMore))
+        let moreButton = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
         
         navigationItem.rightBarButtonItems = [moreButton, searchBarButtonItem]
         
     }
     
-    @objc func handSearch() {
-        
+    let settingsLauncher = SettingLauncher()
+    @objc func handleMore() {
+        settingsLauncher.showSettings()
     }
     
-    @objc func handMore() {
-        
+    @objc func handSearch() {
+
     }
     
     let menuBar: MenuBar = {
