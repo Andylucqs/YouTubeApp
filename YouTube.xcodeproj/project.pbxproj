@@ -21,6 +21,7 @@
 		5F25BF3E22E9B3E8007E38AA /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */; };
 		5F25BF4022E9F694007E38AA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3F22E9F694007E38AA /* SettingCell.swift */; };
 		5F25BF4722EB11A0007E38AA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF4622EB11A0007E38AA /* ApiService.swift */; };
+		5F25BF4922EB4420007E38AA /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF4822EB4420007E38AA /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		5F25BF3F22E9F694007E38AA /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		5F25BF4622EB11A0007E38AA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		5F25BF4822EB4420007E38AA /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				5F25BF3622E86CAF007E38AA /* MenuBar.swift */,
 				5F25BF3F22E9F694007E38AA /* SettingCell.swift */,
 				5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */,
+				5F25BF4822EB4420007E38AA /* FeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				5F25BF3E22E9B3E8007E38AA /* SettingsLauncher.swift in Sources */,
 				5F25BF3422E867DD007E38AA /* VideoCell.swift in Sources */,
 				5F25BF2322E76871007E38AA /* YouTube.xcdatamodeld in Sources */,
+				5F25BF4922EB4420007E38AA /* FeedCell.swift in Sources */,
 				5F25BF3722E86CAF007E38AA /* MenuBar.swift in Sources */,
 				5F25BF4722EB11A0007E38AA /* ApiService.swift in Sources */,
 				5F25BF1D22E76871007E38AA /* HomeController.swift in Sources */,
