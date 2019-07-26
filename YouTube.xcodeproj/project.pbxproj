@@ -20,6 +20,7 @@
 		5F25BF3C22E9A5CD007E38AA /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */; };
 		5F25BF3E22E9B3E8007E38AA /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */; };
 		5F25BF4022E9F694007E38AA /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF3F22E9F694007E38AA /* SettingCell.swift */; };
+		5F25BF4722EB11A0007E38AA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25BF4622EB11A0007E38AA /* ApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5F25BF3B22E9A5CD007E38AA /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		5F25BF3D22E9B3E8007E38AA /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		5F25BF3F22E9F694007E38AA /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		5F25BF4622EB11A0007E38AA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		5F25BF1922E76871007E38AA /* YouTube */ = {
 			isa = PBXGroup;
 			children = (
+				5F25BF4522EB115E007E38AA /* ApiService */,
 				5F25BF3822E8B991007E38AA /* Model */,
 				5F25BF3522E867E1007E38AA /* View */,
 				5F25BF3222E867CC007E38AA /* Controller */,
@@ -118,6 +121,14 @@
 				5F25BF3922E8B99C007E38AA /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5F25BF4522EB115E007E38AA /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				5F25BF4622EB11A0007E38AA /* ApiService.swift */,
+			);
+			path = ApiService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 				5F25BF3422E867DD007E38AA /* VideoCell.swift in Sources */,
 				5F25BF2322E76871007E38AA /* YouTube.xcdatamodeld in Sources */,
 				5F25BF3722E86CAF007E38AA /* MenuBar.swift in Sources */,
+				5F25BF4722EB11A0007E38AA /* ApiService.swift in Sources */,
 				5F25BF1D22E76871007E38AA /* HomeController.swift in Sources */,
 				5F25BF1B22E76871007E38AA /* AppDelegate.swift in Sources */,
 				5F25BF4022E9F694007E38AA /* SettingCell.swift in Sources */,

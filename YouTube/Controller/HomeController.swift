@@ -9,75 +9,14 @@
 import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
-
-//    var videos: [Video] = {
-//
-//        var mythBustersChannel = Channel()
-//        mythBustersChannel.name = "Myth Busters"
-//        mythBustersChannel.profileImageName = "muthBustersLogo"
-//
-//        var nearEnoughtVideo = Video()
-//        nearEnoughtVideo.title = "VSause: The law of near enought"
-//        nearEnoughtVideo.thumbnailImageName = "near_enought"
-//        nearEnoughtVideo.channel = mythBustersChannel
-//        nearEnoughtVideo.numberOfVievs = 234234565
-//
-//
-//        var runEarthVideo = Video()
-//        runEarthVideo.title = "VSause: Как движется земля"
-//        runEarthVideo.thumbnailImageName = "run_earth"
-//        runEarthVideo.channel = mythBustersChannel
-//        runEarthVideo.numberOfVievs = 2342334996
-//
-//        return [nearEnoughtVideo, runEarthVideo]
-//    }()
     
     var videos: [Video]?
     
     func fetchVideos() {
-        let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
-        URLSession.shared.dataTask(with: url!) { (data, responce, error) in
-            
-            
-            if error != nil {
-                print(error ?? "")
-                return
-            }
-            
-            do {
-               let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                
-                self.videos = [Video]()
-                
-                for dictionary in json as! [[String: AnyObject]] {
-                    
-                    let video = Video()
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
-                    
-                    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
-                    
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    video.channel = channel
-                    
-                    self.videos?.append(video)
-                }
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-                
-            } catch let jsonError{
-                print(jsonError)
-            }
-            
-        
-            
-        }.resume()
-        
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+            self.videos = videos
+            self.collectionView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -85,11 +24,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         fetchVideos()
 
-        navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = "   Home"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
@@ -145,9 +83,19 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
 
     private func setupMenuBar() {
+        navigationController?.hidesBarsOnSwipe = true
+        
+        let redView = UIView()
+        redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        view.addSubview(redView)
+        view.addConstraintWithFormat(format: "H:|[v0]|", view: redView)
+        view.addConstraintWithFormat(format: "V:[v0(50)]", view: redView)
+        
         view.addSubview(menuBar)
         view.addConstraintWithFormat(format: "H:|[v0]|", view: menuBar)
-        view.addConstraintWithFormat(format: "V:|[v0(50)]", view: menuBar)
+        view.addConstraintWithFormat(format: "V:[v0(50)]", view: menuBar)
+        
+        menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
