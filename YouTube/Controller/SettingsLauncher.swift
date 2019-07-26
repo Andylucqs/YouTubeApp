@@ -9,13 +9,31 @@
 import UIKit
 
 class Setting: NSObject {
-    let name: String
-    let imageName: String
+    let name: SettingName
+    let imageName: SettingIconName
     
-    init(name: String, imageName: String) {
+    init(name: SettingName, imageName: SettingIconName) {
         self.name = name
         self.imageName = imageName
     }
+}
+
+enum SettingName: String {
+    case cancel = "Cancel"
+    case settings = "Settings"
+    case termsPrivacy = "Terms & privacy policy"
+    case sendFeedback = "Send Feedback"
+    case help = "Help"
+    case switchAccount = "Switch Account"
+}
+
+enum SettingIconName: String {
+    case settingsIcon = "settings"
+    case privacyIcon = "privacy"
+    case feedbackIcon = "feedback"
+    case helpIcon = "help"
+    case switchAccountIcon = "switch_account"
+    case cancelIcon = "cancel"
 }
 
 class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -33,12 +51,12 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     let cellHeight: CGFloat = 50
     
     let settings: [Setting] = {
-        return [Setting(name: "Settings", imageName: "settings"),
-                Setting(name: "Terms & privacy policy", imageName: "privacy"),
-                Setting(name: "Send Feedback", imageName: "feedback"),
-                Setting(name: "Help", imageName: "help"),
-                Setting(name: "Switch Account", imageName: "switch_account"),
-                Setting(name: "Cancel", imageName: "cancel")]
+        return [Setting(name: .settings, imageName: .settingsIcon),
+                Setting(name: .termsPrivacy, imageName: .privacyIcon),
+                Setting(name: .sendFeedback, imageName: .feedbackIcon),
+                Setting(name: .help, imageName: .helpIcon),
+                Setting(name: .switchAccount, imageName: .switchAccountIcon),
+                Setting(name: .cancel, imageName: .cancelIcon)]
     }()
     
     var homeController: HomeController?
@@ -82,7 +100,7 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
         }) { (completed: Bool) in
-            if setting.name != "" && setting.name != "Cancel" {
+            if setting.name != .cancel {
                 self.homeController?.showControllerForSetting(setting: setting)
             }
         }

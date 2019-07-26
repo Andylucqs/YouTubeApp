@@ -129,7 +129,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func showControllerForSetting(setting: Setting) {
         let dummySerringViewController = UIViewController()
         dummySerringViewController.view.backgroundColor = .white
-        dummySerringViewController.navigationItem.title = setting.name
+        dummySerringViewController.navigationItem.title = setting.name.rawValue
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.pushViewController(dummySerringViewController, animated: true)
