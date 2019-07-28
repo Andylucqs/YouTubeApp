@@ -34,11 +34,11 @@ class VideoCell: BaseCell {
             
             setupProfileImage()
             
-            if let channelName = video?.channel?.name, let numberOfVievs = video?.numberOfVievs {
+            if let channelName = video?.channel?.name, let numberOfVievs = video?.numberOfViews {
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
-                let subtitleText = "\(channelName) - \(numberFormatter.string(from:numberOfVievs)!) — 2 years ago"
+                let subtitleText = "\(channelName) - \(numberFormatter.string(from: NSNumber(value: numberOfVievs))!) — 2 years ago"
                 subtitleTextView.text = subtitleText
             }
             
