@@ -18,24 +18,6 @@ class Setting: NSObject {
     }
 }
 
-enum SettingName: String {
-    case cancel = "Cancel"
-    case settings = "Settings"
-    case termsPrivacy = "Terms & privacy policy"
-    case sendFeedback = "Send Feedback"
-    case help = "Help"
-    case switchAccount = "Switch Account"
-}
-
-enum SettingIconName: String {
-    case settingsIcon = "settings"
-    case privacyIcon = "privacy"
-    case feedbackIcon = "feedback"
-    case helpIcon = "help"
-    case switchAccountIcon = "switch_account"
-    case cancelIcon = "cancel"
-}
-
 class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let blackView = UIView()
